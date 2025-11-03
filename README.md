@@ -1,6 +1,6 @@
-# Multi-Agent Reasoning System
+# CARENLI
 
-This repository contains the core for "Carnap: A Multi-Agentic Framework for Adaptive LLM-Symbolic Reasoning".
+This repository contains the core for "CARENLI: Compartmentalised Agentic Reasoning for Clinical NLI".
 
 ## Repository Structure
 
