@@ -1,0 +1,1493 @@
+[
+  {
+    "problem_id": "1",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (improves)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Outcome Measurement: Percentage of Patients Achieving FEV1 Improvement \u226515% After 6 Weeks of Inhaled Budesonide. Spirometry was performed at baseline and at Week 6. Time frame: 6 weeks. Results: 54.8% (17/31) met the improvement threshold.",
+    "statement": "Inhaled budesonide improves lung function in patients.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_1, ques_1 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (inhaled budesonide) and Y (lung function improvement via FEV1 \u226515%).\n2. The premise provides baseline measurements and post-treatment results (54.8% improvement) without a control group, but uses within-subject comparison to baseline.\n3. FEV1 improvement is a validated lung function metric, and temporality is established (baseline \u2192 Week 6).\n4. The premise shows a majority of patients achieved clinically meaningful improvement after treatment.\n5. While lacking a parallel control group, the baseline comparison provides sufficient causal evidence per core principles (reference point exists).\n6. Directionality matches the statement's causal claim (treatment \u2192 improvement).",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "incorrect",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. T = inhaled budesonide; Y = lung function improvement (FEV1 \u226515%).\n2. Premise shows 54.8% achieved Y after T administration with baseline comparison.\n3. No control group exists to compare against natural progression or placebo effects.\n4. While temporality (T precedes Y) is established, baseline comparisons alone cannot isolate T's causal effect from regression to mean or disease course.\n5. Core principles require explicit comparator for causal claims - absent here.\n6. Evidence shows association but cannot confirm causation due to missing counterfactual (what would Y be without T?).\n7. Directionality of association matches statement, but causal insufficiency remains.",
+        "pred": "neutral"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. T = inhaled budesonide; Y = lung function improvement (FEV1 \u226515%).\n2. Premise shows 54.8% achieved Y after T administration with baseline comparison.\n3. No control group exists to compare against natural progression or placebo effects.\n4. While temporality (T precedes Y) is established, baseline comparisons alone cannot isolate T's causal effect from regression to mean or disease course.\n5. Core principles require explicit comparator for causal claims - absent here.\n6. Evidence shows association but cannot confirm causation due to missing counterfactual (what would Y be without T?).\n7. Directionality of association matches statement, but causal insufficiency remains.",
+      "pred": "neutral"
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "2",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk association",
+      "specific adverse events"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Adverse Events Summary: Total: 6/14 (42.86%). Neutropenia 2/14 (14.29%), Peripheral neuropathy 1/14 (7.14%), Diarrhea 2/14 (14.29%), Hyponatremia 1/14 (7.14%).",
+    "statement": "The treatment was effective but associated with risks to immune function and nerve health.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_2, ques_2 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Adverse events include neutropenia (immune suppression) and peripheral neuropathy (nerve damage).\n2. Likelihood: Neutropenia 14.29%, peripheral neuropathy 7.14% - both non-negligible rates.\n3. Severity: Neutropenia carries infection/sepsis risk (serious), peripheral neuropathy causes functional impairment (moderate-severe).\n4. Risk comparison: Both events directly align with 'immune function' (neutropenia) and 'nerve health' (neuropathy) risks in the statement.\n5. No evidence contradicts these associations. The statement accurately reflects documented risks without introducing unsubstantiated claims.\n6. Effectiveness claim is outside risk assessment scope per instructions.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Adverse events include neutropenia (immune suppression) and peripheral neuropathy (nerve damage).\n2. Likelihood: Neutropenia 14.29%, peripheral neuropathy 7.14% - both non-negligible rates.\n3. Severity: Neutropenia carries infection/sepsis risk (serious), peripheral neuropathy causes functional impairment (moderate-severe).\n4. Risk comparison: Both events directly align with 'immune function' (neutropenia) and 'nerve health' (neuropathy) risks in the statement.\n5. No evidence contradicts these associations. The statement accurately reflects documented risks without introducing unsubstantiated claims.\n6. Effectiveness claim is outside risk assessment scope per instructions.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "3",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (lowers)",
+      "intervention-outcome"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Outcome Measurement: Proportion of Patients With Resting Heart Rate <80 bpm at Week 12 After Ivabradine Therapy. Baseline average: 94 bpm. Results: 61.9% (26/42) achieved the target. Time frame: 12 weeks.",
+    "statement": "Ivabradine lowers resting heart rate in patients.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_3, ques_3 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (Ivabradine) and Y (resting heart rate).\n2. Premise shows baseline average heart rate was 94 bpm before treatment.\n3. After 12 weeks of Ivabradine therapy, 61.9% of patients achieved <80 bpm (a clinically significant reduction).\n4. The comparison between pre-treatment baseline (94 bpm average) and post-treatment results (<80 bpm in majority) establishes a temporal relationship and directionality.\n5. While no control group is mentioned, the baseline serves as an implicit comparator showing improvement.\n6. The magnitude (94 \u2192 <80 in majority) and temporal consistency (12-week intervention) support causation.\nthan correlation.\n7. This directly matches the statement's causal claim about heart rate reduction.",
+        "pred": "entailment",
+        "fact_verification": "incorrect",
+        "reasoning_verification": "incorrect",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. Identify T (Ivabradine) and Y (resting heart rate).\n2. Premise shows baseline average heart rate was 94 bpm before treatment.\n3. After 12 weeks, 61.9% of patients achieved <80 bpm (removed unsupported 'clinically significant' claim).\n4. Pre-post comparison shows association but lacks control group to establish causation (cannot exclude natural variation/regression to mean).\n5. While magnitude of change (94 \u2192 <80) is notable, causation requires comparator group showing difference vs. no treatment.\n6. No evidence directly links Ivabradine to reduction independent of other factors.\n7. Core principles require explicit comparator for causal claims; baseline alone insufficient. Association \u2260 causation here.",
+        "pred": "neutral"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (Ivabradine) and Y (resting heart rate).\n2. Premise shows baseline average heart rate was 94 bpm before treatment.\n3. After 12 weeks, 61.9% of patients achieved <80 bpm (removed unsupported 'clinically significant' claim).\n4. Pre-post comparison shows association but lacks control group to establish causation (cannot exclude natural variation/regression to mean).\n5. While magnitude of change (94 \u2192 <80) is notable, causation requires comparator group showing difference vs. no treatment.\n6. No evidence directly links Ivabradine to reduction independent of other factors.\n7. Core principles require explicit comparator for causal claims; baseline alone insufficient. Association \u2260 causation here.",
+      "pred": "neutral"
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "4",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Outcome Measurement: Percentage of Participants With Fasting Plasma Glucose <100 mg/dL After 16 Weeks of Pioglitazone. Baseline and Week 16 measurements taken. Results: 47.6% (20/42) reached the target. Time frame: 16 weeks.",
+    "statement": "Pioglitazone causes a reduction in fasting plasma glucose levels.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_4, ques_4 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. T (treatment) is Pioglitazone, Y (outcome) is fasting plasma glucose levels. The statement makes a causal claim (T causes reduction in Y).\n2. The premise reports 47.6% of participants achieved FPG <100 mg/dL at Week 16 but does not provide baseline FPG values or control group data.\n3. Without baseline comparison (pre/post) or control group outcomes, we cannot determine if Pioglitazone caused the reduction. The percentage could reflect natural progression or other factors.\n4. While achieving <100 mg/dL suggests lower values, causation requires evidence of change from baseline or superiority to comparator.\n5. The premise lacks required comparator data to establish causal direction, making the claim unverifiable.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. T (treatment) is Pioglitazone, Y (outcome) is fasting plasma glucose levels. The statement makes a causal claim (T causes reduction in Y).\n2. The premise reports 47.6% of participants achieved FPG <100 mg/dL at Week 16 but does not provide baseline FPG values or control group data.\n3. Without baseline comparison (pre/post) or control group outcomes, we cannot determine if Pioglitazone caused the reduction. The percentage could reflect natural progression or other factors.\n4. While achieving <100 mg/dL suggests lower values, causation requires evidence of change from baseline or superiority to comparator.\n5. The premise lacks required comparator data to establish causal direction, making the claim unverifiable.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "5",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "adverse event frequencies",
+      "risk occurrence"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Adverse Events: Total: 8/22 (36.36%). Elevated creatinine 2/22 (9.09%), Ankle edema 3/22 (13.64%), Hypotension 2/22 (9.09%), Fatigue 1/22 (4.55%).",
+    "statement": "The treatment was effective but some patients experienced kidney function changes, swelling, and low blood pressure.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_5, ques_5 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: The statement references kidney function changes (elevated creatinine, 9.09%), swelling (ankle edema, 13.64%), and low blood pressure (hypotension, 9.09%) - all explicitly listed in the premise. 2. Likelihood: These events occurred in 9-14% of patients, qualifying as 'some' per trial data. 3. Severity: These are moderate risks (kidney changes require monitoring but not immediately life-threatening in this context). 4. Alignment: The statement accurately reflects the nature and scale of observed adverse events. While the premise doesn't address treatment efficacy directly, the 'but' construction doesn't contradict risk data. No unmentioned severe risks are implied. Thus, the risk-related claims are fully supported.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: The statement references kidney function changes (elevated creatinine, 9.09%), swelling (ankle edema, 13.64%), and low blood pressure (hypotension, 9.09%) - all explicitly listed in the premise. 2. Likelihood: These events occurred in 9-14% of patients, qualifying as 'some' per trial data. 3. Severity: These are moderate risks (kidney changes require monitoring but not immediately life-threatening in this context). 4. Alignment: The statement accurately reflects the nature and scale of observed adverse events. While the premise doesn't address treatment efficacy directly, the 'but' construction doesn't contradict risk data. No unmentioned severe risks are implied. Thus, the risk-related claims are fully supported.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "6",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "safety profile",
+      "severity assessment"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Adverse Events Summary: Total: 4/12 (33.33%). Headache 2/12 (16.67%), Pruritus 1/12 (8.33%), Mild anemia 1/12 (8.33%). All events were Grade 1 or 2.",
+    "statement": "The drug was effective and well tolerated, with only mild side effects reported.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_6, ques_6 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Adverse events reported are headache, pruritus, and mild anemia (all Grade 1/2). No severe complications or latent diagnoses mentioned.\n2. Likelihood: 33% AE rate (4/12), but individual events \u226416.67% frequency. All explicitly graded as mild/moderate.\n3. Severity: Grade 1/2 events (mild anemia, pruritus, headache) are low-severity per CTCAE criteria.\n4. Risk comparison: No evidence of severe/life-threatening events. Statement's 'only mild side effects' matches premise's Grade 1-2 characterization.\n5. Evaluation: Statement's claim about tolerability aligns with absence of severe risks and explicit low-grade events. Effectiveness claim is outside risk assessment scope.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Adverse events reported are headache, pruritus, and mild anemia (all Grade 1/2). No severe complications or latent diagnoses mentioned.\n2. Likelihood: 33% AE rate (4/12), but individual events \u226416.67% frequency. All explicitly graded as mild/moderate.\n3. Severity: Grade 1/2 events (mild anemia, pruritus, headache) are low-severity per CTCAE criteria.\n4. Risk comparison: No evidence of severe/life-threatening events. Statement's 'only mild side effects' matches premise's Grade 1-2 characterization.\n5. Evaluation: Statement's claim about tolerability aligns with absence of severe risks and explicit low-grade events. Effectiveness claim is outside risk assessment scope.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "7",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (improved)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Treatment-Emergent Adverse Events: 5/16 (31.25%). Hyperkalemia 1/16 (6.25%), Dizziness 2/16 (12.50%), Palpitations 1/16 (6.25%), Constipation 1/16 (6.25%).",
+    "statement": "The treatment improved outcomes but some patients experienced electrolyte imbalances and cardiovascular symptoms.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_7, ques_7 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (treatment) and Y (outcomes/adverse effects). The statement makes two causal claims: T improves outcomes (positive effect) and T causes electrolyte/cardiovascular symptoms (negative effects).\n2. The premise reports adverse event rates (31.25% overall) including hyperkalemia (electrolyte imbalance) and palpitations (cardiovascular symptom), but provides no data about outcomes or efficacy measures.\n3. No control group or baseline outcome measurements are mentioned to compare improvement against. Causal claims require a comparator to establish treatment effect.\n4. While adverse events occurred post-treatment, correlation \u2260 causation without evidence these rates exceed control group/baseline expectations.\n5. The claim about improved outcomes is directly unsupported (contradicted), while the adverse event attribution lacks causal evidence (neutral). Since the statement combines contradicted and non-entailed elements, the overall label is contradiction.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "incorrect",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. Identify T (treatment) and Y components: The statement combines two causal claims - T improves outcomes (Y1) and T causes electrolyte/cardiovascular symptoms (Y2).\n2. Analyze improved outcomes claim: The premise contains no efficacy data or outcome measures. Without baseline comparisons or control group results, improved outcomes cannot be established \u2192 contradicted.\n3. Analyze adverse events claim: Per clinical trial conventions, treatment-emergent adverse events (TEAEs) are causally attributed to T by definition, as they emerge after treatment administration. Hyperkalemia (electrolyte imbalance) and palpitations (cardiovascular symptom) are explicitly listed as TEAEs \u2192 entailed.\n4. Final evaluation: The statement combines a contradicted claim (improved outcomes) with an entailed claim (adverse events). In CTNLI, any contradicted element in a compound statement results in overall contradiction.",
+        "pred": "contradiction"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (treatment) and Y components: The statement combines two causal claims - T improves outcomes (Y1) and T causes electrolyte/cardiovascular symptoms (Y2).\n2. Analyze improved outcomes claim: The premise contains no efficacy data or outcome measures. Without baseline comparisons or control group results, improved outcomes cannot be established \u2192 contradicted.\n3. Analyze adverse events claim: Per clinical trial conventions, treatment-emergent adverse events (TEAEs) are causally attributed to T by definition, as they emerge after treatment administration. Hyperkalemia (electrolyte imbalance) and palpitations (cardiovascular symptom) are explicitly listed as TEAEs \u2192 entailed.\n4. Final evaluation: The statement combines a contradicted claim (improved outcomes) with an entailed claim (adverse events). In CTNLI, any contradicted element in a compound statement results in overall contradiction.",
+      "pred": "contradiction"
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "8",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (lowers)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Outcome: Percentage of patients achieving serum uric acid <6 mg/dL after 10 weeks of allopurinol. Results: 69.2% (18/26) achieved the target. Time frame: 10 weeks.",
+    "statement": "Allopurinol effectively lowers serum uric acid in most patients.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_8, ques_8 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (allopurinol) and Y (lower serum uric acid).\n2. Premise shows 69.2% achieved target SUA <6 mg/dL post-treatment.\n3. No control group or baseline measurement provided for comparison.\n4. Causal claims require evidence of difference from control/baseline to establish effect.\n5. While majority achieved target, absence of comparator makes causation unproven.\n6. Statement makes causal claim ('effectively lowers') without sufficient comparative evidence.\n7. Neutral because premise shows association but lacks required causal evidence structure.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (allopurinol) and Y (lower serum uric acid).\n2. Premise shows 69.2% achieved target SUA <6 mg/dL post-treatment.\n3. No control group or baseline measurement provided for comparison.\n4. Causal claims require evidence of difference from control/baseline to establish effect.\n5. While majority achieved target, absence of comparator makes causation unproven.\n6. Statement makes causal claim ('effectively lowers') without sufficient comparative evidence.\n7. Neutral because premise shows association but lacks required causal evidence structure.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "9",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (accelerates)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Outcome: Rate of complete lesion clearance at Week 4 following topical 5-fluorouracil application for actinic keratosis. 55% (11/20) achieved complete clearance. Time frame: 4 weeks.",
+    "statement": "Topical 5-fluorouracil accelerates lesion clearance in actinic keratosis.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_9, ques_9 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "The statement claims that topical 5-fluorouracil accelerates lesion clearance (T \u2192 Y). The premise reports a 55% complete clearance rate at Week 4 but provides no comparator (e.g., natural history of lesions without treatment, placebo group clearance rate, or baseline clearance speed). Acceleration implies faster clearance than a reference timeline, which cannot be verified without a control group or baseline data. The premise only shows efficacy at a single timepoint, not comparative speed. Since causal claims require a comparator to establish directionality, the evidence is insufficient to confirm or refute acceleration.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "The statement claims that topical 5-fluorouracil accelerates lesion clearance (T \u2192 Y). The premise reports a 55% complete clearance rate at Week 4 but provides no comparator (e.g., natural history of lesions without treatment, placebo group clearance rate, or baseline clearance speed). Acceleration implies faster clearance than a reference timeline, which cannot be verified without a control group or baseline data. The premise only shows efficacy at a single timepoint, not comparative speed. Since causal claims require a comparator to establish directionality, the evidence is insufficient to confirm or refute acceleration.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "10",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (reduces)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "Outcome: Percentage of participants with \u226550% reduction in weekly migraine days at Week 8 following galcanezumab injections. 62.5% (15/24) met the reduction threshold. No control group included.",
+    "statement": "Galcanezumab reduces migraine frequency significantly by Week 8.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "neutral",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_10, ques_10 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "The premise reports that 62.5% of participants achieved \u226550% reduction in migraine days after galcanezumab, but explicitly states 'No control group included.' To support a causal claim like 'reduces migraine frequency,' the premise must compare outcomes between an intervention group and a control group/baseline. Without a control group or pre-treatment baseline data showing migraine frequency before galcanezumab, we cannot determine whether the observed reduction was caused by the drug or other factors (e.g., natural variation, placebo effect). The reported percentage only describes post-intervention correlation, not causation. Since causal claims require a comparator and none exists here, the evidence is insufficient to entail or contradict the statement.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "The premise reports that 62.5% of participants achieved \u226550% reduction in migraine days after galcanezumab, but explicitly states 'No control group included.' To support a causal claim like 'reduces migraine frequency,' the premise must compare outcomes between an intervention group and a control group/baseline. Without a control group or pre-treatment baseline data showing migraine frequency before galcanezumab, we cannot determine whether the observed reduction was caused by the drug or other factors (e.g., natural variation, placebo effect). The reported percentage only describes post-intervention correlation, not causation. Since causal claims require a comparator and none exists here, the evidence is insufficient to entail or contradict the statement.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "11",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting diagnosis",
+      "objective imaging vs opinion"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 72-year-old man presents with sudden onset of right-sided weakness and slurred speech. CT scan shows an acute left middle cerebral artery territory infarct. The attending physician attributes the symptoms to low blood sugar and starts glucose infusion.",
+    "statement": "The patient has an ischemic stroke.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_11, ques_11 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. CT scan (instrumented data) shows acute left MCA infarct - highest evidence tier. 2. Physician's hypoglycemia attribution (opinion) conflicts with imaging. 3. Ischemic stroke diagnosis is directly supported by CT evidence of acute territorial infarct. 4. Reject lower-tier opinion when contradicted by objective imaging. 5. Statement matches verified imaging finding.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. CT scan (instrumented data) shows acute left MCA infarct - highest evidence tier. 2. Physician's hypoglycemia attribution (opinion) conflicts with imaging. 3. Ischemic stroke diagnosis is directly supported by CT evidence of acute territorial infarct. 4. Reject lower-tier opinion when contradicted by objective imaging. 5. Statement matches verified imaging finding.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "12",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting diagnosis vs imaging",
+      "objective lab vs opinion"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 48-year-old woman reports progressive shortness of breath and swelling in her legs over several weeks. Echocardiogram reveals severely reduced left ventricular ejection fraction. The cardiologist diagnoses asthma and prescribes inhalers.",
+    "statement": "The patient has heart failure.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_12, ques_12 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: echocardiogram (instrumented data) shows severely reduced LVEF (objective evidence for heart failure) vs. cardiologist's asthma diagnosis (clinician opinion).\n2. Evidence hierarchy prioritizes instrumented data (LVEF <40% by echo) over diagnostic opinions.\n3. Reduced LVEF with peripheral edema and dyspnea directly satisfies heart failure diagnostic criteria (objective findings), while asthma cannot explain reduced LVEF or edema.\n4. Reject lower-hierarchy clinician opinion due to contradiction with objective evidence.\n5. Statement is entailed by remaining consistent evidence: echo-confirmed systolic dysfunction with HF symptoms.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains conflicting claims: echocardiogram (instrumented data) shows severely reduced LVEF (objective evidence for heart failure) vs. cardiologist's asthma diagnosis (clinician opinion).\n2. Evidence hierarchy prioritizes instrumented data (LVEF <40% by echo) over diagnostic opinions.\n3. Reduced LVEF with peripheral edema and dyspnea directly satisfies heart failure diagnostic criteria (objective findings), while asthma cannot explain reduced LVEF or edema.\n4. Reject lower-hierarchy clinician opinion due to contradiction with objective evidence.\n5. Statement is entailed by remaining consistent evidence: echo-confirmed systolic dysfunction with HF symptoms.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "13",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting diagnosis",
+      "objective lab vs opinion"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 30-year-old man presents with high fever, severe headache, neck stiffness, and photophobia. Lumbar puncture reveals cloudy cerebrospinal fluid with elevated white cell count and low glucose. The physician attributes symptoms to tension headache and prescribes analgesics.",
+    "statement": "The patient has bacterial meningitis.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_13, ques_13 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: lumbar puncture (instrumented data) shows cloudy CSF with elevated WBC and low glucose (objective findings strongly indicative of bacterial meningitis) vs. physician's opinion of tension headache (low-evidence tier).\n2. CSF abnormalities (elevated cells, low glucose) are pathognomonic for meningitis and physiologically incompatible with tension headache diagnosis.\n3. Per evidence hierarchy, objective CSF results override clinician opinion. Tension headache cannot explain meningeal signs or CSF changes.\n4. Statement aligns with retained high-confidence evidence (CSF results + classic meningeal symptoms).",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains conflicting claims: lumbar puncture (instrumented data) shows cloudy CSF with elevated WBC and low glucose (objective findings strongly indicative of bacterial meningitis) vs. physician's opinion of tension headache (low-evidence tier).\n2. CSF abnormalities (elevated cells, low glucose) are pathognomonic for meningitis and physiologically incompatible with tension headache diagnosis.\n3. Per evidence hierarchy, objective CSF results override clinician opinion. Tension headache cannot explain meningeal signs or CSF changes.\n4. Statement aligns with retained high-confidence evidence (CSF results + classic meningeal symptoms).",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "14",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "objective lab vs opinion",
+      "conflicting assertions"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 62-year-old woman experiences sudden loss of vision in one eye. Fundoscopic examination reveals a pale retina with a cherry-red spot at the macula. The ophthalmologist suspects conjunctivitis and prescribes antibiotic drops.",
+    "statement": "The patient has central retinal artery occlusion.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_14, ques_14 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: fundoscopic findings (pale retina + cherry-red spot) are objective evidence of central retinal artery occlusion (CRAO), while the ophthalmologist's conjunctivitis diagnosis is a lower-hierarchy opinion. 2. Cherry-red spot at macula is pathognomonic for CRAO (instrumented evidence). 3. Conjunctivitis diagnosis contradicts objective findings (no discharge/redness reported) and sudden vision loss. 4. Resolve conflict by prioritizing fundoscopic evidence over clinician opinion. 5. Statement matches confirmed objective findings.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains conflicting claims: fundoscopic findings (pale retina + cherry-red spot) are objective evidence of central retinal artery occlusion (CRAO), while the ophthalmologist's conjunctivitis diagnosis is a lower-hierarchy opinion. 2. Cherry-red spot at macula is pathognomonic for CRAO (instrumented evidence). 3. Conjunctivitis diagnosis contradicts objective findings (no discharge/redness reported) and sudden vision loss. 4. Resolve conflict by prioritizing fundoscopic evidence over clinician opinion. 5. Statement matches confirmed objective findings.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "15",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "objective lab vs opinion",
+      "conflicting diagnosis vs tests"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 54-year-old male presents with severe epigastric pain radiating to the back, elevated serum lipase, and abdominal CT confirming pancreatic inflammation. The clinician diagnoses gastritis and starts proton pump inhibitors.",
+    "statement": "The patient has acute pancreatitis.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_15, ques_15 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "Objective evidence (elevated serum lipase [instrumented lab], CT-confirmed pancreatic inflammation [imaging]) directly supports acute pancreatitis diagnosis per diagnostic criteria. Clinician's gastritis diagnosis (opinion) contradicts higher-evidence findings. Acute pancreatitis requires \u22652 of: 1) abdominal pain consistent, 2) lipase \u22653\u00d7 ULN, 3) imaging findings - all present. Therefore, the statement is contradicted by the premise's evidence hierarchy.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "Objective evidence (elevated serum lipase [instrumented lab], CT-confirmed pancreatic inflammation [imaging]) directly supports acute pancreatitis diagnosis per diagnostic criteria. Clinician's gastritis diagnosis (opinion) contradicts higher-evidence findings. Acute pancreatitis requires \u22652 of: 1) abdominal pain consistent, 2) lipase \u22653\u00d7 ULN, 3) imaging findings - all present. Therefore, the statement is contradicted by the premise's evidence hierarchy.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "16",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting evidence",
+      "diagnosis vs objective test"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 45-year-old man complains of chest discomfort after meals and occasional regurgitation. Endoscopy is normal. Despite the absence of cardiac symptoms, the physician diagnoses myocardial infarction and starts anticoagulation therapy.",
+    "statement": "The patient has myocardial infarction.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "contradiction",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_16, ques_16 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: physician's MI diagnosis (opinion) vs absence of cardiac symptoms and normal endoscopy (objective).\n2. Evidence hierarchy prioritizes instrumented data (normal endoscopy) and absence of cardiac symptoms over diagnostic opinion.\n3. MI diagnosis requires objective evidence (ECG changes, troponin elevation) not mentioned in premise.\n4. Physician's unsupported opinion contradicts higher-tier evidence.\n5. Statement 'has MI' is contradicted by available objective data.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains conflicting claims: physician's MI diagnosis (opinion) vs absence of cardiac symptoms and normal endoscopy (objective).\n2. Evidence hierarchy prioritizes instrumented data (normal endoscopy) and absence of cardiac symptoms over diagnostic opinion.\n3. MI diagnosis requires objective evidence (ECG changes, troponin elevation) not mentioned in premise.\n4. Physician's unsupported opinion contradicts higher-tier evidence.\n5. Statement 'has MI' is contradicted by available objective data.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "17",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting evidence",
+      "objective test vs opinion"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 28-year-old woman presents with diffuse abdominal pain, bloating, and irregular bowel movements for several months. Colonoscopy is unremarkable. The physician diagnoses colon cancer and refers her for chemotherapy.",
+    "statement": "The patient has colon cancer.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "contradiction",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_17, ques_17 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: 'colonoscopy is unremarkable' (instrumented evidence) vs 'physician diagnoses colon cancer' (opinion).\n2. Colonoscopy results (direct visualization) are higher in evidence hierarchy than clinician opinion.\n3. Colon cancer diagnosis requires endoscopic/histologic confirmation per clinical standards.\n4. Unremarkable colonoscopy objectively contradicts cancer diagnosis.\n5. Reject lower-hierarchy opinion in favor of instrumented evidence.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains conflicting claims: 'colonoscopy is unremarkable' (instrumented evidence) vs 'physician diagnoses colon cancer' (opinion).\n2. Colonoscopy results (direct visualization) are higher in evidence hierarchy than clinician opinion.\n3. Colon cancer diagnosis requires endoscopic/histologic confirmation per clinical standards.\n4. Unremarkable colonoscopy objectively contradicts cancer diagnosis.\n5. Reject lower-hierarchy opinion in favor of instrumented evidence.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "18",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "diagnosis vs objective test",
+      "conflicting evidence"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 61-year-old woman arrives with gradual onset of numbness and tingling in her feet. Nerve conduction studies are normal. The neurologist diagnoses Guillain\u2013Barr\u00e9 syndrome and admits her for IVIG therapy.",
+    "statement": "The patient has Guillain\u2013Barr\u00e9 syndrome.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "contradiction",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_18, ques_18 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: neurologist's diagnosis of Guillain-Barr\u00e9 syndrome (clinician opinion) vs normal nerve conduction studies (instrumented data).\n2. Nerve conduction studies (objective measurement) rank higher than clinician diagnosis in evidence hierarchy.\n3. Guillain-Barr\u00e9 syndrome typically requires abnormal nerve conduction findings for diagnosis.\n4. Normal studies directly contradict pathophysiological basis of GBS diagnosis.\n5. Reject lower-hierarchy claim (diagnosis) in favor of higher evidence (normal studies).",
+        "pred": "contradiction",
+        "fact_verification": "incorrect",
+        "reasoning_verification": "correct",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. Premise contains neurologist's diagnosis of Guillain-Barr\u00e9 syndrome (clinician opinion) and normal nerve conduction studies (instrumented data).\n2. Corrected clinical fact: Normal nerve conduction studies do not categorically exclude GBS, especially early in disease course (resolving solver's factual error).\n3. No remaining conflict between evidence tiers - instrumented data (normal studies) and clinician diagnosis can coexist given early GBS presentation characteristics.\n4. Diagnosis remains supported by clinician's judgment without higher-tier contradictory evidence requiring conflict resolution.\n5. Statement directly reflects documented diagnosis in premise without contradiction from retained evidence.",
+        "pred": "entailment"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains neurologist's diagnosis of Guillain-Barr\u00e9 syndrome (clinician opinion) and normal nerve conduction studies (instrumented data).\n2. Corrected clinical fact: Normal nerve conduction studies do not categorically exclude GBS, especially early in disease course (resolving solver's factual error).\n3. No remaining conflict between evidence tiers - instrumented data (normal studies) and clinician diagnosis can coexist given early GBS presentation characteristics.\n4. Diagnosis remains supported by clinician's judgment without higher-tier contradictory evidence requiring conflict resolution.\n5. Statement directly reflects documented diagnosis in premise without contradiction from retained evidence.",
+      "pred": "entailment"
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "19",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting symptoms vs labs",
+      "diagnosis despite normal labs"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 39-year-old man reports intense thirst, frequent urination, and unexplained weight loss. Fasting blood glucose is 98 mg/dL, and HbA1c is within normal range. The physician diagnoses type 1 diabetes mellitus.",
+    "statement": "The patient has type 1 diabetes mellitus.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "contradiction",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_19, ques_19 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Parse claims: Symptoms (patient report), glucose 98 mg/dL (instrumented), HbA1c normal (instrumented), physician diagnosis (opinion). 2. Validate: Glucose and HbA1c are objective measurements (highest hierarchy). 3. Conflict: Diagnosis of type 1 diabetes requires hyperglycemia (fasting \u2265126 mg/dL) and elevated HbA1c (\u22656.5%), both contradicted by normal lab values. 4. Resolve: Reject physician's opinion (lower hierarchy) due to conflicting instrumented data. 5. Statement contradicts remaining consistent evidence (normal glucose/HbA1c).",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Parse claims: Symptoms (patient report), glucose 98 mg/dL (instrumented), HbA1c normal (instrumented), physician diagnosis (opinion). 2. Validate: Glucose and HbA1c are objective measurements (highest hierarchy). 3. Conflict: Diagnosis of type 1 diabetes requires hyperglycemia (fasting \u2265126 mg/dL) and elevated HbA1c (\u22656.5%), both contradicted by normal lab values. 4. Resolve: Reject physician's opinion (lower hierarchy) due to conflicting instrumented data. 5. Statement contradicts remaining consistent evidence (normal glucose/HbA1c).",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "20",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting evidence",
+      "objective lab vs opinion"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 56-year-old man presents with persistent cough and hemoptysis. Chest CT is clear, with no evidence of masses or infiltrates. The physician diagnoses lung cancer and begins chemotherapy.",
+    "statement": "The patient has lung cancer.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "contradiction",
+    "gt_problem_type": "epsitemic",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_20, ques_20 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Premise contains conflicting claims: chest CT (instrumented data) shows no masses/infiltrates vs physician's opinion of lung cancer diagnosis. 2. CT evidence (higher hierarchy) directly contradicts cancer diagnosis which typically requires imaging findings. 3. Reject lower-hierarchy clinician opinion when contradicted by objective imaging. 4. Statement 'has lung cancer' contradicts remaining consistent evidence (clear CT).",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Premise contains conflicting claims: chest CT (instrumented data) shows no masses/infiltrates vs physician's opinion of lung cancer diagnosis. 2. CT evidence (higher hierarchy) directly contradicts cancer diagnosis which typically requires imaging findings. 3. Reject lower-hierarchy clinician opinion when contradicted by objective imaging. 4. Statement 'has lung cancer' contradicts remaining consistent evidence (clear CT).",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "21",
+    "pred_problem_type": "Comp",
+    "reason": [
+      "causal verb",
+      "dose+schedule joint rule"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "70-year-old male with chronic lymphocytic leukemia receiving fludarabine 120mg/m\u00b2 intravenously daily for 14 consecutive days per cycle.",
+    "statement": "The treatment is expected to induce remission, improve blood counts, and prolong survival.",
+    "description": "Solve compositional reasoning problem. Joint constraints over drug\u2013dose\u2013units\u2013schedule\u2013diagnosis\u2013patient factors (age, sex, renal/hepatic function, comorbidities) and co-therapy. Includes dosing bounds, indications, exclusions, and concurrency rules.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "compositional_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_21, ques_21 -> compositional_solver, compositional_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract factors: The premise specifies fludarabine 120mg/m\u00b2 daily for 14 days in a CLL patient. The statement claims therapeutic benefits.\n2. Check drug-dosing guidelines: Standard fludarabine dosing for CLL is 25mg/m\u00b2 IV \u00d75 days/month. The stated 120mg/m\u00b2/dose (4.8\u00d7 higher) with 14-day duration (2.8\u00d7 longer) exceeds maximum tolerated doses.\n3. Dependency analysis: This regimen would cause fatal myelosuppression (contradicting 'improve blood counts') and increased mortality risk (contradicting 'prolong survival'). Dose/schedule combinations this extreme are not clinically used due to prohibitive toxicity.\n4. Contraindication: Prolonged high-dose fludarabine is incompatible with therapeutic success in CLL. The claimed benefits are impossible under these parameters.",
+        "pred": "contradiction",
+        "fact_verification": "incorrect",
+        "reasoning_verification": "incorrect",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. Extract factors: Premise specifies fludarabine 120mg/m\u00b2 daily \u00d714 days in a CLL patient. Statement claims therapeutic benefits (remission, improved blood counts, survival).\n2. Dependency analysis: The premise provides no efficacy/toxicity data for this regimen. No stated guidelines or outcome studies in the premise support linking 120mg/m\u00b2 \u00d714 days to the claimed benefits.\n3. All-conditions test: While the dose/duration exceeds typical clinical practice, the premise contains no explicit contradictions (e.g., no reported adverse events or treatment failure).\n4. Violation test: No premise-stated interactions or outcome measurements contradict the statement's claims. Absence of supporting evidence \u2260 contradiction.\n5. Decision: Neutral. The statement makes positive outcome assertions unsupported by premise content, but not explicitly contradicted by it either.",
+        "pred": "neutral"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract factors: Premise specifies fludarabine 120mg/m\u00b2 daily \u00d714 days in a CLL patient. Statement claims therapeutic benefits (remission, improved blood counts, survival).\n2. Dependency analysis: The premise provides no efficacy/toxicity data for this regimen. No stated guidelines or outcome studies in the premise support linking 120mg/m\u00b2 \u00d714 days to the claimed benefits.\n3. All-conditions test: While the dose/duration exceeds typical clinical practice, the premise contains no explicit contradictions (e.g., no reported adverse events or treatment failure).\n4. Violation test: No premise-stated interactions or outcome measurements contradict the statement's claims. Absence of supporting evidence \u2260 contradiction.\n5. Decision: Neutral. The statement makes positive outcome assertions unsupported by premise content, but not explicitly contradicted by it either.",
+      "pred": "neutral"
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "22",
+    "pred_problem_type": "Comp",
+    "reason": [
+      "therapy effect",
+      "dose+schedule joint rule"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "55-year-old female with HER2-positive breast cancer receiving trastuzumab 40mg/kg intravenously every 3 weeks for 8 cycles.",
+    "statement": "The therapy is expected to control tumor growth and improve long-term prognosis.",
+    "description": "Solve compositional reasoning problem. Joint constraints over drug\u2013dose\u2013units\u2013schedule\u2013diagnosis\u2013patient factors (age, sex, renal/hepatic function, comorbidities) and co-therapy. Includes dosing bounds, indications, exclusions, and concurrency rules.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "compositional_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_22, ques_22 -> compositional_solver, compositional_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract factors: Premise specifies HER2+ breast cancer treated with trastuzumab 40mg/kg q3w x8 cycles. Statement claims tumor control and improved prognosis.\n2. Dependency check: Trastuzumab is standard HER2+ therapy, but standard dosing is 8mg/kg loading \u2192 6mg/kg maintenance q3w. The premise's 40mg/kg dose violates standard dosing guidelines (contradiction via drug-dose mismatch).\n3. Outcome dependency: Incorrect dosing (5x higher than maximum standard dose) would likely cause toxicity (cardiac, infusion reactions) rather than therapeutic benefit, invalidating the statement's positive prognosis claim.\n4. All required conditions not met due to critical dosing error \u2192 contradiction.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract factors: Premise specifies HER2+ breast cancer treated with trastuzumab 40mg/kg q3w x8 cycles. Statement claims tumor control and improved prognosis.\n2. Dependency check: Trastuzumab is standard HER2+ therapy, but standard dosing is 8mg/kg loading \u2192 6mg/kg maintenance q3w. The premise's 40mg/kg dose violates standard dosing guidelines (contradiction via drug-dose mismatch).\n3. Outcome dependency: Incorrect dosing (5x higher than maximum standard dose) would likely cause toxicity (cardiac, infusion reactions) rather than therapeutic benefit, invalidating the statement's positive prognosis claim.\n4. All required conditions not met due to critical dosing error \u2192 contradiction.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "23",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (induce, improve)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "3-year-old child diagnosed with acute myeloid leukemia receiving cytarabine 1500mg/m\u00b2 intravenously every 12 hours for 14 days.",
+    "statement": "The treatment is expected to induce remission and improve the child\u2019s survival chances.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_23, ques_23 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": null,
+    "solution_final": null,
+    "is_correct": false,
+    "error_info": [
+      {
+        "error_info": "Solution JSON error: <think>\nOkay, let's tackle this CTNLI problem. The premise is about a 3-year-old child with acute myeloid leukemia (AML) receiving cytarabine at a specific dosage. The statement claims that the treatment will induce remission and improve survival chances.\n\nFirst, I need to identify the intervention (T) and outcome (Y). Here, T is cytarabine 1500mg/m\u00b2, and Y is remission and improved survival. The statement is making a causal claim that T causes Y.\n\nNow, checking the premise for evidence. The premise only states the treatment regimen but doesn't mention any results or comparisons. There's no control group, baseline data, or outcome data provided. Without data showing that this treatment leads to remission or better outcomes compared to a control or previous state, we can't confirm causation. \n\nCytarabine is a known chemotherapy drug for AML, so maybe there's prior knowledge, but the task is to base the decision solely on the premise. Since the premise lacks any results or comparative data, the causal claim in the statement isn't supported by direct evidence here. Therefore, the label should be neutral because there's no evidence provided to confirm or refute the effect.\n</think>\n\n{\n  \"reasoning\": \"1. Identify T (cytarabine treatment) and Y (remission/survival improvement).\\n2. Premise describes treatment administration but provides no outcome data or control group comparison.\\n3. No evidence of actual remission rates, survival statistics, or baseline comparisons in premise.\\n4. While cytarabine is standard AML therapy, causal claims require direct evidence from the provided context.\\n5. Without measurable outcomes or comparator data, we cannot confirm directionality of effect.\\n  \"label\": \"neutral\"\n}",
+        "location": "agents/solvers/LLM_solver.py:49"
+      },
+      {
+        "error_info": "Failed to solve reasoning problem: Solver emitted invalid JSON",
+        "location": "agents/solvers/LLM_solver.py:113"
+      },
+      {
+        "error_info": "Error on id 23: Failed to solve reasoning problem: Solver emitted invalid JSON",
+        "location": "framework/carnap.py:133"
+      }
+    ]
+  },
+  {
+    "problem_id": "24",
+    "pred_problem_type": "Comp",
+    "reason": [
+      "drug-dosing in liver impairment",
+      "joint patient+drug factors"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "68-year-old male with hepatocellular carcinoma and severe liver cirrhosis (Child-Pugh C) receiving sorafenib 1600mg orally twice daily.",
+    "statement": "The patient is expected to benefit from slowed tumor progression and improved overall survival.",
+    "description": "Solve compositional reasoning problem. Joint constraints over drug\u2013dose\u2013units\u2013schedule\u2013diagnosis\u2013patient factors (age, sex, renal/hepatic function, comorbidities) and co-therapy. Includes dosing bounds, indications, exclusions, and concurrency rules.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "compositional_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_24, ques_24 -> compositional_solver, compositional_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract factors: Premise specifies hepatocellular carcinoma (HCC), Child-Pugh C cirrhosis (severe liver dysfunction), and sorafenib 1600mg/day (standard dose).\n2. Dependency analysis: Child-Pugh C cirrhosis contraindicates full-dose sorafenib per clinical guidelines. Severe hepatic impairment requires dose reduction or avoidance due to toxicity risks.\n3. Clinical context: Sorafenib trials excluded Child-Pugh C patients. Real-world data shows reduced survival benefit and increased toxicity in this population.\n4. Interaction violation: Maintaining standard dose (1600mg BID) with Child-Pugh C creates self-contradictory scenario where treatment harms outweigh benefits.\n5. Conclusion: The statement's claim of benefit directly contradicts the contraindicated drug-dose-liver function combination in the premise.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract factors: Premise specifies hepatocellular carcinoma (HCC), Child-Pugh C cirrhosis (severe liver dysfunction), and sorafenib 1600mg/day (standard dose).\n2. Dependency analysis: Child-Pugh C cirrhosis contraindicates full-dose sorafenib per clinical guidelines. Severe hepatic impairment requires dose reduction or avoidance due to toxicity risks.\n3. Clinical context: Sorafenib trials excluded Child-Pugh C patients. Real-world data shows reduced survival benefit and increased toxicity in this population.\n4. Interaction violation: Maintaining standard dose (1600mg BID) with Child-Pugh C creates self-contradictory scenario where treatment harms outweigh benefits.\n5. Conclusion: The statement's claim of benefit directly contradicts the contraindicated drug-dose-liver function combination in the premise.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "25",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "49-year-old female with metastatic colorectal cancer receiving irinotecan 1500mg/m\u00b2 weekly for 8 weeks.",
+    "statement": "The treatment is expected to reduce metastatic lesions and improve disease control.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_25, ques_25 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (irinotecan) and Y (reduced metastatic lesions, improved disease control).\n2. Premise only states administration of treatment without results or comparator group.\n3. No evidence provided about actual outcomes or comparison to control/baseline.\n4. Causal claims require evidence of effect through comparative data (e.g., tumor response rates vs control).\n5. Statement uses 'expected to' but premise contains no efficacy data to support this expectation.\n6. Without outcome measurements or control group comparison, causal relationship remains unproven.\n7. Neutral because premise lacks evidence to confirm or refute the treatment's causal effects.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (irinotecan) and Y (reduced metastatic lesions, improved disease control).\n2. Premise only states administration of treatment without results or comparator group.\n3. No evidence provided about actual outcomes or comparison to control/baseline.\n4. Causal claims require evidence of effect through comparative data (e.g., tumor response rates vs control).\n5. Statement uses 'expected to' but premise contains no efficacy data to support this expectation.\n6. Without outcome measurements or control group comparison, causal relationship remains unproven.\n7. Neutral because premise lacks evidence to confirm or refute the treatment's causal effects.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "26",
+    "pred_problem_type": "Comp",
+    "reason": [
+      "dose+renal joint rule",
+      "patient factors (CKD)"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "80-year-old male with chronic kidney disease (eGFR 15 mL/min/1.73m\u00b2) and multiple myeloma receiving cisplatin 200mg/m\u00b2 daily for 5 consecutive days.",
+    "statement": "The regimen is expected to achieve disease control and extend progression-free survival.",
+    "description": "Solve compositional reasoning problem. Joint constraints over drug\u2013dose\u2013units\u2013schedule\u2013diagnosis\u2013patient factors (age, sex, renal/hepatic function, comorbidities) and co-therapy. Includes dosing bounds, indications, exclusions, and concurrency rules.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "compositional_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_26, ques_26 -> compositional_solver, compositional_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract factors: Patient has severe CKD (eGFR 15 = stage 5) and receives high-dose cisplatin (200mg/m\u00b2 \u00d75d).\n2. Cisplatin is nephrotoxic and contraindicated in CKD stage \u22653 (eGFR <60). Dose adjustment is required even for mild CKD.\n3. 200mg/m\u00b2 exceeds standard doses (typically 50-100mg/m\u00b2 per cycle) and violates renal dosing guidelines.\n4. Severe CKD (eGFR 15) prevents safe cisplatin administration due to drug accumulation and toxicity.\n5. Contraindication creates dependency: unsafe regimen \u2192 cannot achieve intended therapeutic effect.\n6. Violation of renal/dose constraints makes the claimed outcome (disease control/PFS extension) impossible \u2192 contradiction.",
+        "pred": "contradiction",
+        "fact_verification": "incorrect",
+        "reasoning_verification": "incorrect",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. Extract factors: 80yo with CKD stage 5 (eGFR 15) receives cisplatin 200mg/m\u00b2 \u00d75d (total 1000mg/m\u00b2/cycle).\n2. Corrected facts: Cisplatin contraindicated in CKD stage 4/5 (eGFR <30). Standard regimens use 50-100mg/m\u00b2 as single doses every 3-4 weeks (cumulative 50-100mg/m\u00b2/cycle). Current dose is 10-20\u00d7 higher than standard.\n3. Severe renal impairment (eGFR 15) prohibits cisplatin use per guidelines. This regimen would not be administered in practice due to extreme nephrotoxicity risk.\n4. Pattern correction: Even if initiated, severe nephrotoxicity would force treatment discontinuation before completing 5-day regimen required for therapeutic effect.\n5. Dependency analysis: Contraindicated regimen \u2192 cannot be properly administered \u2192 invalidates outcome claims. Explicit guideline violation makes claimed outcomes impossible in real-world practice.",
+        "pred": "contradiction"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract factors: 80yo with CKD stage 5 (eGFR 15) receives cisplatin 200mg/m\u00b2 \u00d75d (total 1000mg/m\u00b2/cycle).\n2. Corrected facts: Cisplatin contraindicated in CKD stage 4/5 (eGFR <30). Standard regimens use 50-100mg/m\u00b2 as single doses every 3-4 weeks (cumulative 50-100mg/m\u00b2/cycle). Current dose is 10-20\u00d7 higher than standard.\n3. Severe renal impairment (eGFR 15) prohibits cisplatin use per guidelines. This regimen would not be administered in practice due to extreme nephrotoxicity risk.\n4. Pattern correction: Even if initiated, severe nephrotoxicity would force treatment discontinuation before completing 5-day regimen required for therapeutic effect.\n5. Dependency analysis: Contraindicated regimen \u2192 cannot be properly administered \u2192 invalidates outcome claims. Explicit guideline violation makes claimed outcomes impossible in real-world practice.",
+      "pred": "contradiction"
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "27",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (prolong)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "62-year-old female with ovarian cancer receiving carboplatin at an AUC of 20 every 3 weeks for 6 cycles.",
+    "statement": "The treatment is expected to shrink tumor burden and prolong overall survival.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_27, ques_27 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (carboplatin treatment) and Y (tumor shrinkage, prolonged survival).\n2. Premise only describes treatment administration without any outcome data or control group results.\n3. No comparative statistics (e.g., tumor size before/after, survival rates vs control) are provided.\n4. While carboplatin is known to be effective for ovarian cancer, the premise lacks specific evidence of causal effect in this case.\n5. Without measured outcomes or comparator data, causal claims cannot be verified from the premise alone.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (carboplatin treatment) and Y (tumor shrinkage, prolonged survival).\n2. Premise only describes treatment administration without any outcome data or control group results.\n3. No comparative statistics (e.g., tumor size before/after, survival rates vs control) are provided.\n4. While carboplatin is known to be effective for ovarian cancer, the premise lacks specific evidence of causal effect in this case.\n5. Without measured outcomes or comparator data, causal claims cannot be verified from the premise alone.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "28",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (induce, improve)",
+      "single-arm/no comparator"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "58-year-old male with small cell lung cancer receiving etoposide 1500mg/m\u00b2 daily for 10 consecutive days.",
+    "statement": "The regimen is expected to induce tumor regression and improve clinical outcomes.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_28, ques_28 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (etoposide regimen) and Y (tumor regression/improved outcomes).\n2. Premise only describes treatment administration without control group or baseline measurements.\n3. No comparative statistics (e.g., tumor size before/after treatment, survival rates vs control).\n4. While etoposide is known to be effective for SCLC clinically, the premise contains no direct evidence of actual outcomes.\n5. Causal claims require evidence of effect through comparison (treatment vs control or pre/post intervention), which is absent here.\n6. The statement makes a predictive causal claim ('expected to') that cannot be verified from the given premise alone.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (etoposide regimen) and Y (tumor regression/improved outcomes).\n2. Premise only describes treatment administration without control group or baseline measurements.\n3. No comparative statistics (e.g., tumor size before/after treatment, survival rates vs control).\n4. While etoposide is known to be effective for SCLC clinically, the premise contains no direct evidence of actual outcomes.\n5. Causal claims require evidence of effect through comparison (treatment vs control or pre/post intervention), which is absent here.\n6. The statement makes a predictive causal claim ('expected to') that cannot be verified from the given premise alone.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "29",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb (improve)",
+      "intervention-outcome relation"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "4-month-old infant diagnosed with neuroblastoma receiving doxorubicin 80mg/m\u00b2 daily for 7 days.",
+    "statement": "The treatment is expected to achieve tumor shrinkage and improve prognosis.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_29, ques_29 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (doxorubicin treatment) and Y (tumor shrinkage/prognosis improvement).\n2. Premise only describes administration of treatment without any outcome data or control group comparison.\n3. No baseline measurements or post-treatment results are provided to establish causality.\n4. While doxorubicin is known as chemotherapy, the premise contains no evidence about actual treatment effects in this case.\n5. Without comparative data between treatment and control groups, or pre/post measurements, causal claims cannot be verified.\n6. The statement makes a predictive causal claim that cannot be evaluated from the given premise alone.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (doxorubicin treatment) and Y (tumor shrinkage/prognosis improvement).\n2. Premise only describes administration of treatment without any outcome data or control group comparison.\n3. No baseline measurements or post-treatment results are provided to establish causality.\n4. While doxorubicin is known as chemotherapy, the premise contains no evidence about actual treatment effects in this case.\n5. Without comparative data between treatment and control groups, or pre/post measurements, causal claims cannot be verified.\n6. The statement makes a predictive causal claim that cannot be evaluated from the given premise alone.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "30",
+    "pred_problem_type": "Causal",
+    "reason": [
+      "causal verb",
+      "intervention outcome"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "67-year-old patient with advanced gastric cancer receiving 5-fluorouracil 2500mg/m\u00b2 intravenously daily for 14 consecutive days.",
+    "statement": "The therapy is expected to slow disease progression and improve survival rates.",
+    "description": "Solve causal reasoning problem. Statements making causal claims \u201ceffect of T on Y\u201d (e.g., cause, lead to, improve, reduce, accelerate;). May include or omit an interventional contrast or comparator to verify.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "causal_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_30, ques_30 -> causal_solver, causal_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Identify T (5-fluorouracil therapy) and Y (slowed disease progression, improved survival rates).\n2. Premise only describes treatment administration without comparative data (no control group, baseline measurements, or outcome results).\n3. No evidence of actual effect direction (improvement vs. worsening) or statistical comparisons between groups.\n4. Causal claims require evidence of differential outcomes between intervention and control groups, which is absent here.\n5. While 5-FU is known clinically for gastric cancer, the premise contains no specific evidence to support the causal claim.\n6. Neutral because the premise neither demonstrates therapeutic effect nor contradicts it - it describes treatment initiation without outcomes.",
+        "pred": "neutral",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Identify T (5-fluorouracil therapy) and Y (slowed disease progression, improved survival rates).\n2. Premise only describes treatment administration without comparative data (no control group, baseline measurements, or outcome results).\n3. No evidence of actual effect direction (improvement vs. worsening) or statistical comparisons between groups.\n4. Causal claims require evidence of differential outcomes between intervention and control groups, which is absent here.\n5. While 5-FU is known clinically for gastric cancer, the premise contains no specific evidence to support the causal claim.\n6. Neutral because the premise neither demonstrates therapeutic effect nor contradicts it - it describes treatment initiation without outcomes.",
+      "pred": "neutral",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": false,
+    "error_info": []
+  },
+  {
+    "problem_id": "31",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk superlative",
+      "frequency comparison"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": [
+      "Adverse Events 9:",
+      " Total: 48/72 (66.67%)",
+      " Diarrhea 30/72 (41.67%)",
+      " Neutropenic sepsis 3/72 (4.17%)",
+      " Gastrointestinal bleeding 2/72 (2.78%)",
+      " Hypokalemia 4/72 (5.56%)",
+      " Injection site reaction 6/72 (8.33%)",
+      " Pulmonary embolism 2/72 (2.78%)"
+    ],
+    "statement": "The highest patient risk was associated with the occurrence of diarrhea.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_31, ques_31 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Diarrhea (41.67%), Neutropenic sepsis (4.17%), Gastrointestinal bleeding (2.78%), Pulmonary embolism (2.78%).\n2. Severity ranking: Neutropenic sepsis (life-threatening infection) and Pulmonary embolism (potentially fatal vascular event) > Gastrointestinal bleeding (serious blood loss) > Diarrhea (typically moderate severity unless causing dehydration/electrolyte issues) > Hypokalemia/Injection site reactions (lower severity).\n3. While diarrhea has the highest frequency (41.67%), neutropenic sepsis and pulmonary embolism carry substantially greater severity. A 4.17% risk of sepsis (which often requires ICU care) likely represents greater expected harm than 41.67% diarrhea risk given the catastrophic nature of sepsis.\n4. The statement incorrectly prioritizes frequency over severity-weighted risk. Highest patient risk would be associated with the less frequent but more severe events (sepsis/PE), not diarrhea.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Diarrhea (41.67%), Neutropenic sepsis (4.17%), Gastrointestinal bleeding (2.78%), Pulmonary embolism (2.78%).\n2. Severity ranking: Neutropenic sepsis (life-threatening infection) and Pulmonary embolism (potentially fatal vascular event) > Gastrointestinal bleeding (serious blood loss) > Diarrhea (typically moderate severity unless causing dehydration/electrolyte issues) > Hypokalemia/Injection site reactions (lower severity).\n3. While diarrhea has the highest frequency (41.67%), neutropenic sepsis and pulmonary embolism carry substantially greater severity. A 4.17% risk of sepsis (which often requires ICU care) likely represents greater expected harm than 41.67% diarrhea risk given the catastrophic nature of sepsis.\n4. The statement incorrectly prioritizes frequency over severity-weighted risk. Highest patient risk would be associated with the less frequent but more severe events (sepsis/PE), not diarrhea.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "32",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk superlative",
+      "frequency comparison"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": [
+      "Adverse Events 10:",
+      " Total: 42/66 (63.64%)",
+      " Fever 22/66 (33.33%)",
+      " Anaphylaxis 2/66 (3.03%)",
+      " Ischemic stroke 1/66 (1.52%)",
+      " Atrial fibrillation 3/66 (4.55%)",
+      " Hypotension 4/66 (6.06%)",
+      " Nausea 5/66 (7.58%)"
+    ],
+    "statement": "The highest patient risk was associated with the occurrence of fever.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_32, ques_32 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Adverse events include fever (33.33%), anaphylaxis (3.03%), ischemic stroke (1.52%), atrial fibrillation (4.55%), hypotension (6.06%), and nausea (7.58%).\n2. Severity analysis: Anaphylaxis (life-threatening allergic reaction), ischemic stroke (catastrophic neurological event), and atrial fibrillation (serious cardiac arrhythmia) are high-severity events. Fever and nausea are moderate/minor symptoms.\n3. Risk calculation: While fever has the highest frequency (33.33%), its moderate severity makes its risk (likelihood \u00d7 severity) lower than less frequent but catastrophic events like ischemic stroke (1.52% \u00d7 critical severity) and anaphylaxis (3.03% \u00d7 life-threatening).\n4. The statement incorrectly prioritizes frequency over severity-weighted risk. Severe events with lower frequency dominate risk calculations.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Adverse events include fever (33.33%), anaphylaxis (3.03%), ischemic stroke (1.52%), atrial fibrillation (4.55%), hypotension (6.06%), and nausea (7.58%).\n2. Severity analysis: Anaphylaxis (life-threatening allergic reaction), ischemic stroke (catastrophic neurological event), and atrial fibrillation (serious cardiac arrhythmia) are high-severity events. Fever and nausea are moderate/minor symptoms.\n3. Risk calculation: While fever has the highest frequency (33.33%), its moderate severity makes its risk (likelihood \u00d7 severity) lower than less frequent but catastrophic events like ischemic stroke (1.52% \u00d7 critical severity) and anaphylaxis (3.03% \u00d7 life-threatening).\n4. The statement incorrectly prioritizes frequency over severity-weighted risk. Severe events with lower frequency dominate risk calculations.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "33",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk superlative",
+      "frequency comparison"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": [
+      "Adverse Events 11:",
+      " Total: 36/58 (62.07%)",
+      " Rash 18/58 (31.03%)",
+      " Stevens-Johnson syndrome 1/58 (1.72%)",
+      " Acute hepatic failure 2/58 (3.45%)",
+      " Elevated liver enzymes 5/58 (8.62%)",
+      " Pruritus 7/58 (12.07%)",
+      " Headache 4/58 (6.90%)"
+    ],
+    "statement": "The highest patient risk was associated with the occurrence of rash.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_33, ques_33 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Adverse events include rash (31.03%), Stevens-Johnson syndrome (1.72%), acute hepatic failure (3.45%), elevated liver enzymes (8.62%), pruritus (12.07%), and headache (6.90%).\n2. Severity assessment: Stevens-Johnson syndrome (life-threatening skin/mucosal disorder) and acute hepatic failure (organ failure) are highest severity. Rash (common cutaneous reaction) and others are lower severity.\n3. Risk calculation: While rash has the highest frequency (31.03%), Stevens-Johnson syndrome (1.72%) and acute hepatic failure (3.45%) have catastrophic severity. Expected harm (likelihood \u00d7 severity) for these rare but severe events outweighs the common rash.\n4. The statement incorrectly prioritizes rash as the highest risk. The true highest-risk events are Stevens-Johnson syndrome and acute hepatic failure due to their severity, making the statement contradicted.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Adverse events include rash (31.03%), Stevens-Johnson syndrome (1.72%), acute hepatic failure (3.45%), elevated liver enzymes (8.62%), pruritus (12.07%), and headache (6.90%).\n2. Severity assessment: Stevens-Johnson syndrome (life-threatening skin/mucosal disorder) and acute hepatic failure (organ failure) are highest severity. Rash (common cutaneous reaction) and others are lower severity.\n3. Risk calculation: While rash has the highest frequency (31.03%), Stevens-Johnson syndrome (1.72%) and acute hepatic failure (3.45%) have catastrophic severity. Expected harm (likelihood \u00d7 severity) for these rare but severe events outweighs the common rash.\n4. The statement incorrectly prioritizes rash as the highest risk. The true highest-risk events are Stevens-Johnson syndrome and acute hepatic failure due to their severity, making the statement contradicted.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "34",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk superlative",
+      "frequency comparison"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": [
+      "Adverse Events 12:",
+      " Total: 44/64 (68.75%)",
+      " Cough 19/64 (29.69%)",
+      " Pneumonitis 4/64 (6.25%)",
+      " Respiratory failure 2/64 (3.13%)",
+      " Sepsis 3/64 (4.69%)",
+      " Hyponatremia 5/64 (7.81%)",
+      " Dizziness 6/64 (9.38%)"
+    ],
+    "statement": "The highest patient risk was associated with the occurrence of cough.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_34, ques_34 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Cough (29.69%), Pneumonitis (6.25%), Respiratory failure (3.13%), Sepsis (4.69%), Hyponatremia (7.81%), Dizziness (9.38%). 2. Likelihood: Cough is most frequent (29.69%). 3. Severity: Respiratory failure and sepsis are life-threatening (highest severity), followed by pneumonitis and hyponatremia (serious), then cough and dizziness (minor/moderate). 4. Risk comparison: While cough occurs most frequently, respiratory failure (3.13% \u00d7 catastrophic severity) and sepsis (4.69% \u00d7 catastrophic severity) have higher expected harm due to severity. 5. The statement incorrectly prioritizes frequency over severity. Severe complications with lower frequency but catastrophic outcomes dominate risk assessment.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Cough (29.69%), Pneumonitis (6.25%), Respiratory failure (3.13%), Sepsis (4.69%), Hyponatremia (7.81%), Dizziness (9.38%). 2. Likelihood: Cough is most frequent (29.69%). 3. Severity: Respiratory failure and sepsis are life-threatening (highest severity), followed by pneumonitis and hyponatremia (serious), then cough and dizziness (minor/moderate). 4. Risk comparison: While cough occurs most frequently, respiratory failure (3.13% \u00d7 catastrophic severity) and sepsis (4.69% \u00d7 catastrophic severity) have higher expected harm due to severity. 5. The statement incorrectly prioritizes frequency over severity. Severe complications with lower frequency but catastrophic outcomes dominate risk assessment.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "35",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk superlative",
+      "frequency comparison"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": [
+      "Adverse Events 13:",
+      " Total: 60/90 (66.67%)",
+      " Arthralgia 28/90 (31.11%)",
+      " Torsades de pointes 1/90 (1.11%)",
+      " Ventricular tachycardia 2/90 (2.22%)",
+      " Pancreatitis 3/90 (3.33%)",
+      " Acute kidney injury 5/90 (5.56%)",
+      " Fatigue 10/90 (11.11%)"
+    ],
+    "statement": "The highest patient risk was associated with the occurrence of arthralgia.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "contradiction",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_35, ques_35 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Extract candidates: Adverse events include arthralgia (31.11%), Torsades de pointes (1.11%), ventricular tachycardia (2.22%), pancreatitis (3.33%), acute kidney injury (5.56%), and fatigue (11.11%).\n2. Severity analysis: Arthralgia (joint pain) is minor/moderate. Torsades/ventricular tachycardia are life-threatening arrhythmias. Pancreatitis and acute kidney injury are serious organ complications. Fatigue is mild.\n3. Risk comparison: While arthralgia is the most frequent event, Torsades/ventricular tachycardia have catastrophic severity (highest risk despite low frequency). Acute kidney injury and pancreatitis also outrank arthralgia in severity.\n4. The statement incorrectly prioritizes frequency over severity-weighted risk. Highest risk lies with life-threatening cardiac events, not arthralgia.",
+        "pred": "contradiction",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Extract candidates: Adverse events include arthralgia (31.11%), Torsades de pointes (1.11%), ventricular tachycardia (2.22%), pancreatitis (3.33%), acute kidney injury (5.56%), and fatigue (11.11%).\n2. Severity analysis: Arthralgia (joint pain) is minor/moderate. Torsades/ventricular tachycardia are life-threatening arrhythmias. Pancreatitis and acute kidney injury are serious organ complications. Fatigue is mild.\n3. Risk comparison: While arthralgia is the most frequent event, Torsades/ventricular tachycardia have catastrophic severity (highest risk despite low frequency). Acute kidney injury and pancreatitis also outrank arthralgia in severity.\n4. The statement incorrectly prioritizes frequency over severity-weighted risk. Highest risk lies with life-threatening cardiac events, not arthralgia.",
+      "pred": "contradiction",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "36",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "high-risk condition exclusion",
+      "urgency due to severity"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 38-year-old woman reports an abrupt 'worst headache of my life' that began during a high-intensity spin class, followed by brief nausea and neck stiffness. She is alert and oriented with no focal neurological deficits on examination. She has not yet had any neuroimaging or lumbar puncture.",
+    "statement": "Subarachnoid hemorrhage must be urgently excluded.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "entailment",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_36, ques_36 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Candidates: Subarachnoid hemorrhage (SAH) is a plausible latent diagnosis given thunderclap headache (worst of life) with exertion trigger and neck stiffness. No imaging/LP performed \u2192 SAH not ruled out. 2. Likelihood: Moderate. Classic presentation (abrupt onset, exertion, meningismus) increases pre-test probability despite normal exam. 3. Severity: Catastrophic (high mortality if missed). 4. Risk calculation: High (moderate likelihood \u00d7 critical severity). 5. Statement evaluation: SAH exclusion is urgent because failure to diagnose would lead to preventable death. Premise lacks definitive exclusion \u2192 statement is required by risk principles. Management implication: Deferring neuroimaging would contradict necessary risk mitigation.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Candidates: Subarachnoid hemorrhage (SAH) is a plausible latent diagnosis given thunderclap headache (worst of life) with exertion trigger and neck stiffness. No imaging/LP performed \u2192 SAH not ruled out. 2. Likelihood: Moderate. Classic presentation (abrupt onset, exertion, meningismus) increases pre-test probability despite normal exam. 3. Severity: Catastrophic (high mortality if missed). 4. Risk calculation: High (moderate likelihood \u00d7 critical severity). 5. Statement evaluation: SAH exclusion is urgent because failure to diagnose would lead to preventable death. Premise lacks definitive exclusion \u2192 statement is required by risk principles. Management implication: Deferring neuroimaging would contradict necessary risk mitigation.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "37",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "objective lab vs opinion",
+      "diagnostic hierarchy"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 27-year-old woman presents with lower abdominal pain predominantly on the right, light vaginal spotting, and new shoulder-tip pain. Last menstrual period was approximately 6 weeks ago. She feels lightheaded when standing but is hemodynamically stable. No pregnancy test or imaging has been done yet.",
+    "statement": "Urgent pelvic ultrasound and quantitative \u03b2-hCG testing are required to exclude ectopic pregnancy.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_37, ques_37 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "The premise describes a patient presentation with classic signs of possible ectopic pregnancy (missed period, unilateral abdominal pain, vaginal bleeding, referred shoulder pain) in a hemodynamically stable patient. While no direct evidence (\u03b2-hCG/pelvic ultrasound) exists yet, the constellation of symptoms meets clinical criteria for requiring urgent evaluation to exclude ectopic pregnancy. This follows clinical regularities where these specific tests are standard of care for this presentation. No contradictions exist in the premise's claims, and the statement aligns with expected management based on the reported symptoms.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "The premise describes a patient presentation with classic signs of possible ectopic pregnancy (missed period, unilateral abdominal pain, vaginal bleeding, referred shoulder pain) in a hemodynamically stable patient. While no direct evidence (\u03b2-hCG/pelvic ultrasound) exists yet, the constellation of symptoms meets clinical criteria for requiring urgent evaluation to exclude ectopic pregnancy. This follows clinical regularities where these specific tests are standard of care for this presentation. No contradictions exist in the premise's claims, and the statement aligns with expected management based on the reported symptoms.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "38",
+    "pred_problem_type": "Risk",
+    "reason": [
+      "risk of missing serious condition",
+      "urgent exclusion needed"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 34-year-old woman, two weeks postpartum, presents with sudden pleuritic chest pain and shortness of breath. Heart rate is 118 bpm, SpO2 92% on room air, and she reports mild calf discomfort after prolonged car travel yesterday. Chest auscultation is clear and a prior chest X-ray from triage was unremarkable. No D-dimer or CT pulmonary angiography has been performed.",
+    "statement": "Pulmonary embolism requires urgent exclusion.",
+    "description": "Solve risk reasoning problem. Risk ranking or comparison (highest risk, safer, dangerous), weighing severity against frequency, expected-harm reasoning, and hazards not ruled out by the premise.",
+    "label": "entailment",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "risk_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_38, ques_38 -> risk_solver, risk_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "1. Candidates: Pulmonary embolism (PE) is a) an adverse event (thromboembolic complication) and b) a plausible latent diagnosis given postpartum status (hypercoagulable state), sudden pleuritic pain, hypoxia (SpO2 92%), tachycardia, and calf discomfort (possible DVT).\n2. Likelihood: Elevated. Postpartum period increases PE risk 20-80x baseline. Pleuritic pain + hypoxia + tachycardia form a classic triad. Calf discomfort suggests possible DVT source. No D-dimer/CTPA leaves PE undiagnosed.\n3. Severity: PE is life-threatening (mortality 30% if untreated).\n4. Risk: High (moderate-high likelihood \u00d7 catastrophic severity).\n5. Statement evaluation: 'Requires urgent exclusion' aligns with the need to mitigate this dominant risk. Failure to exclude PE would leave an unacceptably high risk of death. The clear CXR does not rule out PE (only 25% sensitivity).\n6. Conclusion: Entailment - the risk profile mandates urgent exclusion.",
+        "pred": "entailment",
+        "fact_verification": "incorrect",
+        "reasoning_verification": "incorrect",
+        "overall_verification": false
+      },
+      {
+        "reasoning": "1. Candidates: Pulmonary embolism (PE) is a plausible latent diagnosis given postpartum status (known hypercoagulable state), sudden pleuritic chest pain, hypoxia (SpO2 92%), tachycardia, and calf discomfort (possible DVT).\n2. Likelihood: Elevated qualitatively. Postpartum period confers significantly increased PE risk. Pleuritic pain, hypoxia, and tachycardia are concerning features, though not a classic diagnostic triad (hemoptysis absent). Calf discomfort raises suspicion for DVT as a source. PE remains undiagnosed as no D-dimer/CTPA performed.\n3. Severity: PE is life-threatening (high mortality if untreated).\n4. Risk: High (elevated likelihood \u00d7 catastrophic severity). A normal CXR does not exclude PE, as it lacks sufficient sensitivity for this diagnosis.\n5. Statement evaluation: 'Requires urgent exclusion' aligns with risk principles. Failure to exclude PE leaves an unmitigated life-threatening risk. Management implications mandate urgent evaluation given plausible severe hazard not ruled out by existing tests.\n6. Conclusion: Entailment - clinical picture and risk hierarchy necessitate urgent exclusion of PE.",
+        "pred": "entailment"
+      }
+    ],
+    "solution_final": {
+      "reasoning": "1. Candidates: Pulmonary embolism (PE) is a plausible latent diagnosis given postpartum status (known hypercoagulable state), sudden pleuritic chest pain, hypoxia (SpO2 92%), tachycardia, and calf discomfort (possible DVT).\n2. Likelihood: Elevated qualitatively. Postpartum period confers significantly increased PE risk. Pleuritic pain, hypoxia, and tachycardia are concerning features, though not a classic diagnostic triad (hemoptysis absent). Calf discomfort raises suspicion for DVT as a source. PE remains undiagnosed as no D-dimer/CTPA performed.\n3. Severity: PE is life-threatening (high mortality if untreated).\n4. Risk: High (elevated likelihood \u00d7 catastrophic severity). A normal CXR does not exclude PE, as it lacks sufficient sensitivity for this diagnosis.\n5. Statement evaluation: 'Requires urgent exclusion' aligns with risk principles. Failure to exclude PE leaves an unmitigated life-threatening risk. Management implications mandate urgent evaluation given plausible severe hazard not ruled out by existing tests.\n6. Conclusion: Entailment - clinical picture and risk hierarchy necessitate urgent exclusion of PE.",
+      "pred": "entailment"
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "39",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "exclude diagnosis",
+      "objective imaging required"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 55-year-old man with acute severe low back pain reports numbness in the perineal ('saddle') area, difficulty initiating urination, and bilateral leg weakness that worsened over 12 hours. Reflexes are reduced at the ankles. He has not had any spinal imaging or bladder scan yet.",
+    "statement": "Emergency MRI of the lumbosacral spine is required to exclude cauda equina syndrome.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_39, ques_39 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "The premise describes clinical features meeting key criteria for suspected cauda equina syndrome (CES): saddle anesthesia, bladder dysfunction, bilateral neurological deficits, and acute progression. CES requires emergency MRI confirmation per diagnostic protocols. While no imaging results exist (lowest evidence tier), the clinical findings (mid-tier: direct observations) align with formal diagnostic requirements (higher tier). No conflicting objective evidence exists. The statement reflects standard care for this presentation, making it entailed by the clinical evidence hierarchy.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "The premise describes clinical features meeting key criteria for suspected cauda equina syndrome (CES): saddle anesthesia, bladder dysfunction, bilateral neurological deficits, and acute progression. CES requires emergency MRI confirmation per diagnostic protocols. While no imaging results exist (lowest evidence tier), the clinical findings (mid-tier: direct observations) align with formal diagnostic requirements (higher tier). No conflicting objective evidence exists. The statement reflects standard care for this presentation, making it entailed by the clinical evidence hierarchy.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  },
+  {
+    "problem_id": "40",
+    "pred_problem_type": "Epist",
+    "reason": [
+      "conflicting symptoms vs initial tests",
+      "need definitive imaging exclusion"
+    ],
+    "goal": "Solve the reasoning problem",
+    "premise": "A 49-year-old man with a history of poorly controlled hypertension develops sudden severe tearing chest pain radiating to his back while lifting a heavy box. He is diaphoretic and mildly hypertensive on arrival. ECG shows no acute ischemic changes, and initial troponin is normal. No CT angiography or echocardiography has been performed.",
+    "statement": "Aortic dissection must be urgently excluded.",
+    "description": "Solve epistemic reasoning problem. Determining what is true from mixed or conflicting evidence within the premise. Includes resolution of contradictions between sources, preferring objective measurements (labs, imaging) over opinions, and establishing diagnostic status from an evidence hierarchy.",
+    "label": "entailment",
+    "gt_problem_type": "risk",
+    "selected_agents": [
+      "epistemic_solver"
+    ],
+    "excution_dag": "<PLAN_START> -> ques_40, ques_40 -> epistemic_solver, epistemic_solver -> <PLAN_END>",
+    "solution_history": [
+      {
+        "reasoning": "The premise describes classic aortic dissection symptoms (sudden tearing chest/back pain in hypertensive patient) with risk factors (poorly controlled HTN). While ECG/troponin are normal (objective evidence against MI), they don't exclude dissection. No CT/MRI (gold standard imaging) performed. Following evidence hierarchy: 1) Clinical presentation (tearing pain pattern) is highest-risk feature requiring urgent exclusion per guidelines. 2) Absence of definitive imaging leaves dissection unruled-out. The statement aligns with standard care pathways for this presentation, making it entailed as a necessary action based on available evidence.",
+        "pred": "entailment",
+        "fact_verification": "correct",
+        "reasoning_verification": "correct",
+        "overall_verification": true
+      }
+    ],
+    "solution_final": {
+      "reasoning": "The premise describes classic aortic dissection symptoms (sudden tearing chest/back pain in hypertensive patient) with risk factors (poorly controlled HTN). While ECG/troponin are normal (objective evidence against MI), they don't exclude dissection. No CT/MRI (gold standard imaging) performed. Following evidence hierarchy: 1) Clinical presentation (tearing pain pattern) is highest-risk feature requiring urgent exclusion per guidelines. 2) Absence of definitive imaging leaves dissection unruled-out. The statement aligns with standard care pathways for this presentation, making it entailed as a necessary action based on available evidence.",
+      "pred": "entailment",
+      "fact_verification": "correct",
+      "reasoning_verification": "correct",
+      "overall_verification": true
+    },
+    "is_correct": true,
+    "error_info": []
+  }
+]
