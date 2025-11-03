@@ -4,7 +4,7 @@ This repository contains the core for "CARENLI: Compartmentalised Agentic Reason
 
 ## Acknowledgements
 
-This repository contains code and results originally developed by [solerxl](https://github.com/solerxl) (co-author of the associated paper). 
+This repository contains code and results originally developed by [Lei Xu](https://github.com/solerxl) (co-author of the associated paper). 
 
 ## Repository Structure
 
