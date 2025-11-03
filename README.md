@@ -2,6 +2,10 @@
 
 This repository contains the core for "CARENLI: Compartmentalised Agentic Reasoning for Clinical NLI".
 
+## Acknowledgements
+
+This repository contains code and results originally developed by [solerxl] (co-author of the associated paper). 
+
 ## Repository Structure
 
 - **./agents/**: Core agent implementations including:
@@ -144,4 +148,17 @@ bash test_scripts.sh
 ```
 
 This will run tests on both local models and API-based models using the mixed dataset configuration.
+
+## 📄 Citation
+
+If you use this framework in your research, please cite our paper:
+> **Compartmentalised Agentic Reasoning for Clinical NLI**
+```bibtex
+@article{jullien2025compartmentalised,
+  title={Compartmentalised Agentic Reasoning for Clinical NLI},
+  author={Jullien, Ma{\"e}l and Xu, Lei and Valentino, Marco and Freitas, Andr{\'e}},
+  journal={arXiv preprint arXiv:2509.10222},
+  year={2025}
+}
+```
 
